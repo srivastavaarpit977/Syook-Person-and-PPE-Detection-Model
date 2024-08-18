@@ -21,46 +21,47 @@ This project implements a two-stage detection system using YOLOv8 models for per
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/ayaankhan28/SyookAI.git
-   cd person-ppe-detection
+   git clone https://github.com/srivastavaarpit977/Syook-Person-and-PPE-Detection-Model
+   
 
-1. Install the required packages:
+2. Install the required packages:
    ```sh
-   pip install -r requirements.txt
+   pip install ultralytics opencv-python argparse lxml
 
-## Project Structure 
-    ```
-    Syook/
-      │
-      ├── cropped_yolodataset/
-      │   ├── test/
-      │   ├── train/
-      │   ├── valid/
-      │   └── data.yaml
-      │
-      ├── datasets/
-      │   ├── images/
-      │   ├── labels/
-      │   ├── classes.txt
-      │
-      ├── finaloutput/
-      │
-      └── yolodataset/
-      ├──    test/
-      │         ├── images/
-      │         └── labels/
-      ├──    train/
-      │         ├── images/
-      │         └── labels/
-      ├──    valid/
-      │         ├── images/
-      │         └── labels/
-      ├──    data.yaml
-      └──    yolov8n.pt
-    ├── best.pt            # Configuration file
-    ├── bestppe.pt       # Project dependencies
-    ├── pascaslVOC_to_yolo.py            # Configuration file
-    ├── syook.ipynb  
-    ├── syookcrop.ipynb  
-    ├── ppe_dataset_generation.ipynb  
-    └── inference.py               # This file
+## Overview of the Process
+
+### 1. Dataset Preparation
+
+**Person Detection:**
+
+- The dataset was initially filtered to focus on detecting persons.
+- Images and labels were divided into `train`, `valid`, and `test` subfolders.
+
+**PPE Detection:**
+
+- After training the person detection model, the images were cropped to isolate detected persons.
+- These cropped images were then organized similarly into `train`, `valid`, and `test` subfolders for PPE detection training.
+
+### 2. Training and Inference
+
+**Person Detection Model:**
+
+- The filtered dataset was used to train the person detection model.
+
+**PPE Detection Model:**
+
+- The cropped images, focused on persons, were used to train the PPE detection model.
+
+**Inference:**
+
+- The `inference.py` script was then used to detect persons first and subsequently detect PPE on the cropped images.
+
+### 3. Labeling Issues
+
+- During the training of the PPE detection model, some class labels were incorrectly labeled, causing warnings and leading to inaccuracies in the model’s detection of PPE.
+- This issue highlighted the importance of correct labeling for effective model performance.
+
+## Conclusion
+
+This process demonstrates the importance of correctly preparing datasets and labeling to ensure effective model training and accurate detection results.
+
