@@ -21,7 +21,7 @@ This project implements a two-stage detection system using YOLOv8 models for per
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/srivastavaarpit977/Syook-Person-and-PPE-Detection-Model
+   git clone https://github.com/srivastavaarpit977/Syook-Person-and-PPE-Detection-Model.git
    
 
 2. Install the required packages:
